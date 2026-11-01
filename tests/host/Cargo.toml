@@ -1,0 +1,22 @@
+[package]
+name = "urchin-host-tests"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dev-dependencies]
+embedded-graphics = "0.8.2"
+embedded-hal = "1"
+embedded-hal-async = "1"
+heapless = "0.9"
+futures = "0.3"
+rmk = { git = "https://github.com/felipebalbi/rmk.git", rev = "a5575a592094a0326a10a3897c6b8fc9a28acab7", default-features = false, features = ["std", "log", "split", "buffered_tap_hold"] }
+rmk-config = { git = "https://github.com/felipebalbi/rmk.git", rev = "a5575a592094a0326a10a3897c6b8fc9a28acab7" }
+# rmk-config enables serde/std in native tests. Match that feature on the
+# legacy serializer used by embassy-usb so its Error implements StdError.
+ssmarshal = { version = "1.0", features = ["std"] }
+embassy-time = "0.5"
+embassy-futures = "0.1"
+critical-section = { version = "1", features = ["std"] }
+log = "0.4"
+embedded-hal-mock = { version = "0.11.1", default-features = false, features = ["eh1", "embedded-hal-async"] }
