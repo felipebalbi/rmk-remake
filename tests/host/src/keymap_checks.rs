@@ -26,10 +26,18 @@ fn host_layout_exposes_only_the_36_physical_switches() {
 }
 
 #[test]
-fn third_thumbs_resolve_to_escape_and_delete_on_every_layer() {
+fn reordered_thumbs_preserve_taps_holds_and_overrides_on_every_layer() {
     let map = config().keymap().unwrap();
-    for (col, want) in [(2, "Escape"), (7, "Delete")] {
-        for layer in 0..4 {
+    for layer in 0..4 {
+        let wants = [
+            "LT(1, Tab, THUMB)",
+            "Enter",
+            "Escape",
+            "Delete",
+            if layer >= 2 { "RCtrl" } else { "Space" },
+            "LT(2, Backspace, THUMB)",
+        ];
+        for (col, want) in (2..=7).zip(wants) {
             // RMK searches down through transparent actions on active layers.
             let action = (0..=layer)
                 .rev()
@@ -55,8 +63,8 @@ fn absent_thumb_switches_have_no_action_on_any_layer() {
 fn same_hand_thumbs_no_longer_trigger_escape_or_delete_combos() {
     let combos = config().behavior().unwrap().combos.unwrap().combos;
     assert_eq!(combos.len(), 2);
-    for (combo, right_inner) in combos.iter().zip(["Space", "RCtrl"]) {
-        assert_eq!(combo.actions, ["Enter", right_inner]);
+    for (combo, right_center) in combos.iter().zip(["Space", "RCtrl"]) {
+        assert_eq!(combo.actions, ["Enter", right_center]);
         assert_eq!(combo.output, "CapsWordToggle");
     }
 }

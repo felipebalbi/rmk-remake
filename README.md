@@ -19,9 +19,9 @@ Holding both layer thumbs activates Tri.
 
 Thumb keys, from left to right:
 
-| Left third | Left layer | Left inner | Right inner | Right layer | Right third |
+| Left outer | Left center | Left inner | Right inner | Right center | Right outer |
 |---|---|---|---|---|---|
-| Escape | Tab / hold Left | Enter | Space | Backspace / hold Right | Delete |
+| Tab / hold Left | Enter | Escape | Delete | Space | Backspace / hold Right |
 | `(3,2)` | `(3,3)` | `(3,4)` | `(3,5)` | `(3,6)` | `(3,7)` |
 
 Escape and Delete replace Urchin's same-hand two-thumb combos and remain
@@ -111,7 +111,7 @@ cargo test --manifest-path tests/host/Cargo.toml \
 
 Host checks cover display rendering, SPI recovery/cancellation, screen sleep,
 5 ms debounce, representative tap/hold typing, and the resolved REMAKE matrix,
-36-key layout, third-thumb actions, and remaining Caps Word combos.
+36-key layout, thumb taps/holds and layer overrides, and remaining Caps Word combos.
 Firmware and host dependencies are pinned in their respective Cargo manifests.
 
 On hardware, check every switch on both halves, Escape/Delete on every layer,

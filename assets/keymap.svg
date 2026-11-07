@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="2234" viewBox="0 0 1200 2234" role="img" aria-labelledby="title description">
 <title id="title">REMAKE — all layers</title>
 <desc id="description">36-key REMAKE split keyboard. Each layer is shown in typing orientation with staggered columns and three thumbs per hand. Lower legends on dual-function keys show hold actions; tinted thumbs on sublayers mark the held selector. Tri requires both layer thumbs. Down triangles are transparent bindings, and dashes are disabled bindings. Colors use Modus Operandi.</desc>
-<metadata>keyboard.toml sha256: a7cea87058cfce4fc71da4e6c04be776b36ff526148c1ae9a0614859b31bb17b; palette: Modus Operandi, Protesilaos Stavrou, 20261015.953 (6272f81ae3fe); schematic key placement.</metadata>
+<metadata>keyboard.toml sha256: ea245e0d017b15f4598b496c710290e432f00693438d23c7c3f7c97755347ad5; palette: Modus Operandi, Protesilaos Stavrou, 20261015.953 (6272f81ae3fe); schematic key placement.</metadata>
 <style>
 text{font-family:"DejaVu Sans",sans-serif;fill:#000000;text-anchor:middle}
 .binding text{fill:#000000}
@@ -181,37 +181,37 @@ text{font-family:"DejaVu Sans",sans-serif;fill:#000000;text-anchor:middle}
 <rect class="key" x="-36" y="-32" width="72" height="64" rx="8"/>
 <text class="main" x="0" y="7" style="font-size:21.0px">/</text>
 </g>
-<g class="binding" data-row="3" data-col="2" data-action="Escape" transform="translate(387 511) rotate(0)">
-<title>Base (3,2): Escape</title>
-<rect class="key" x="-36" y="-32" width="72" height="64" rx="8"/>
-<text class="main" x="0" y="7" style="font-size:21.0px">Esc</text>
-</g>
-<g class="binding" data-row="3" data-col="3" data-action="LT(1, Tab, THUMB)" transform="translate(480 523) rotate(15)">
-<title>Base (3,3): LT(1, Tab, THUMB)</title>
+<g class="binding" data-row="3" data-col="2" data-action="LT(1, Tab, THUMB)" transform="translate(387 511) rotate(0)">
+<title>Base (3,2): LT(1, Tab, THUMB)</title>
 <rect class="key" x="-36" y="-32" width="72" height="64" rx="8" style="fill:#e0f6e0;stroke:#2a5045;stroke-width:1.7"/>
 <text class="main" x="0" y="1" style="font-size:21.0px">Tab</text>
 <text class="sub" x="0" y="22" style="fill:#2a5045">hold: Left</text>
 </g>
-<g class="binding" data-row="3" data-col="4" data-action="Enter" transform="translate(561 558) rotate(30)">
-<title>Base (3,4): Enter</title>
+<g class="binding" data-row="3" data-col="3" data-action="Enter" transform="translate(480 523) rotate(15)">
+<title>Base (3,3): Enter</title>
 <rect class="key" x="-36" y="-32" width="72" height="64" rx="8"/>
 <text class="main" x="0" y="7" style="font-size:21.0px">Enter</text>
 </g>
-<g class="binding" data-row="3" data-col="5" data-action="Space" transform="translate(671 558) rotate(-30)">
-<title>Base (3,5): Space</title>
+<g class="binding" data-row="3" data-col="4" data-action="Escape" transform="translate(561 558) rotate(30)">
+<title>Base (3,4): Escape</title>
+<rect class="key" x="-36" y="-32" width="72" height="64" rx="8"/>
+<text class="main" x="0" y="7" style="font-size:21.0px">Esc</text>
+</g>
+<g class="binding" data-row="3" data-col="5" data-action="Delete" transform="translate(671 558) rotate(-30)">
+<title>Base (3,5): Delete</title>
+<rect class="key" x="-36" y="-32" width="72" height="64" rx="8"/>
+<text class="main" x="0" y="7" style="font-size:21.0px">Del</text>
+</g>
+<g class="binding" data-row="3" data-col="6" data-action="Space" transform="translate(752 523) rotate(-15)">
+<title>Base (3,6): Space</title>
 <rect class="key" x="-36" y="-32" width="72" height="64" rx="8"/>
 <text class="main" x="0" y="7" style="font-size:21.0px">Space</text>
 </g>
-<g class="binding" data-row="3" data-col="6" data-action="LT(2, Backspace, THUMB)" transform="translate(752 523) rotate(-15)">
-<title>Base (3,6): LT(2, Backspace, THUMB)</title>
+<g class="binding" data-row="3" data-col="7" data-action="LT(2, Backspace, THUMB)" transform="translate(845 511) rotate(0)">
+<title>Base (3,7): LT(2, Backspace, THUMB)</title>
 <rect class="key" x="-36" y="-32" width="72" height="64" rx="8" style="fill:#ecedff;stroke:#003497;stroke-width:1.7"/>
 <text class="main" x="0" y="1" style="font-size:21.0px">Bksp</text>
 <text class="sub" x="0" y="22" style="fill:#003497" textLength="64" lengthAdjust="spacingAndGlyphs">hold: Right</text>
-</g>
-<g class="binding" data-row="3" data-col="7" data-action="Delete" transform="translate(845 511) rotate(0)">
-<title>Base (3,7): Delete</title>
-<rect class="key" x="-36" y="-32" width="72" height="64" rx="8"/>
-<text class="main" x="0" y="7" style="font-size:21.0px">Del</text>
 </g>
 </g>
 <g id="layer-1" data-layer="Left">
@@ -380,16 +380,16 @@ text{font-family:"DejaVu Sans",sans-serif;fill:#000000;text-anchor:middle}
 <text class="sub" x="0" y="22" style="fill:#2a5045">GUI</text>
 </g>
 <g class="binding" data-row="3" data-col="2" data-action="_" transform="translate(387 997) rotate(0)">
-<title>Left (3,2): _</title>
-<rect class="transparent" x="-36" y="-32" width="72" height="64" rx="8"/>
-<text class="main" x="0" y="7" style="font-size:21.0px">▽</text>
-</g>
-<g class="binding" data-row="3" data-col="3" data-action="_" transform="translate(480 1009) rotate(15)">
-<title>Left (3,3): _; held selector from Base</title>
+<title>Left (3,2): _; held selector from Base</title>
 <rect class="key" x="-36" y="-32" width="72" height="64" rx="8" style="fill:#e0f6e0;stroke:#2a5045;stroke-width:1.7"/>
 <text class="flag" x="0" y="-18" style="fill:#2a5045">HELD</text>
 <text class="main" x="0" y="1" style="font-size:21.0px">Tab</text>
 <text class="sub" x="0" y="22" style="fill:#2a5045">Left</text>
+</g>
+<g class="binding" data-row="3" data-col="3" data-action="_" transform="translate(480 1009) rotate(15)">
+<title>Left (3,3): _</title>
+<rect class="transparent" x="-36" y="-32" width="72" height="64" rx="8"/>
+<text class="main" x="0" y="7" style="font-size:21.0px">▽</text>
 </g>
 <g class="binding" data-row="3" data-col="4" data-action="_" transform="translate(561 1044) rotate(30)">
 <title>Left (3,4): _</title>
@@ -582,22 +582,22 @@ text{font-family:"DejaVu Sans",sans-serif;fill:#000000;text-anchor:middle}
 <rect class="transparent" x="-36" y="-32" width="72" height="64" rx="8"/>
 <text class="main" x="0" y="7" style="font-size:21.0px">▽</text>
 </g>
-<g class="binding" data-row="3" data-col="5" data-action="RCtrl" transform="translate(671 1530) rotate(-30)">
-<title>Right (3,5): RCtrl</title>
+<g class="binding" data-row="3" data-col="5" data-action="_" transform="translate(671 1530) rotate(-30)">
+<title>Right (3,5): _</title>
+<rect class="transparent" x="-36" y="-32" width="72" height="64" rx="8"/>
+<text class="main" x="0" y="7" style="font-size:21.0px">▽</text>
+</g>
+<g class="binding" data-row="3" data-col="6" data-action="RCtrl" transform="translate(752 1495) rotate(-15)">
+<title>Right (3,6): RCtrl</title>
 <rect class="key" x="-36" y="-32" width="72" height="64" rx="8" style="fill:#f8f0d0;stroke:#624416;stroke-width:1.7"/>
 <text class="main" x="0" y="7" style="font-size:21.0px">R Ctrl</text>
 </g>
-<g class="binding" data-row="3" data-col="6" data-action="_" transform="translate(752 1495) rotate(-15)">
-<title>Right (3,6): _; held selector from Base</title>
+<g class="binding" data-row="3" data-col="7" data-action="_" transform="translate(845 1483) rotate(0)">
+<title>Right (3,7): _; held selector from Base</title>
 <rect class="key" x="-36" y="-32" width="72" height="64" rx="8" style="fill:#ecedff;stroke:#003497;stroke-width:1.7"/>
 <text class="flag" x="0" y="-18" style="fill:#003497">HELD</text>
 <text class="main" x="0" y="1" style="font-size:21.0px">Bksp</text>
 <text class="sub" x="0" y="22" style="fill:#003497">Right</text>
-</g>
-<g class="binding" data-row="3" data-col="7" data-action="_" transform="translate(845 1483) rotate(0)">
-<title>Right (3,7): _</title>
-<rect class="transparent" x="-36" y="-32" width="72" height="64" rx="8"/>
-<text class="main" x="0" y="7" style="font-size:21.0px">▽</text>
 </g>
 </g>
 <g id="layer-3" data-layer="Tri">
@@ -764,16 +764,16 @@ text{font-family:"DejaVu Sans",sans-serif;fill:#000000;text-anchor:middle}
 <text class="main" x="0" y="7" style="font-size:21.0px">F12</text>
 </g>
 <g class="binding" data-row="3" data-col="2" data-action="_" transform="translate(387 1969) rotate(0)">
-<title>Tri (3,2): _</title>
-<rect class="transparent" x="-36" y="-32" width="72" height="64" rx="8"/>
-<text class="main" x="0" y="7" style="font-size:21.0px">▽</text>
-</g>
-<g class="binding" data-row="3" data-col="3" data-action="_" transform="translate(480 1981) rotate(15)">
-<title>Tri (3,3): _; held selector from Base</title>
+<title>Tri (3,2): _; held selector from Base</title>
 <rect class="key" x="-36" y="-32" width="72" height="64" rx="8" style="fill:#f8e6f5;stroke:#721045;stroke-width:1.7"/>
 <text class="flag" x="0" y="-18" style="fill:#721045">HELD</text>
 <text class="main" x="0" y="1" style="font-size:21.0px">Tab</text>
 <text class="sub" x="0" y="22" style="fill:#721045">Left</text>
+</g>
+<g class="binding" data-row="3" data-col="3" data-action="_" transform="translate(480 1981) rotate(15)">
+<title>Tri (3,3): _</title>
+<rect class="transparent" x="-36" y="-32" width="72" height="64" rx="8"/>
+<text class="main" x="0" y="7" style="font-size:21.0px">▽</text>
 </g>
 <g class="binding" data-row="3" data-col="4" data-action="_" transform="translate(561 2016) rotate(30)">
 <title>Tri (3,4): _</title>
@@ -786,16 +786,16 @@ text{font-family:"DejaVu Sans",sans-serif;fill:#000000;text-anchor:middle}
 <text class="main" x="0" y="7" style="font-size:21.0px">▽</text>
 </g>
 <g class="binding" data-row="3" data-col="6" data-action="_" transform="translate(752 1981) rotate(-15)">
-<title>Tri (3,6): _; held selector from Base</title>
+<title>Tri (3,6): _</title>
+<rect class="transparent" x="-36" y="-32" width="72" height="64" rx="8"/>
+<text class="main" x="0" y="7" style="font-size:21.0px">▽</text>
+</g>
+<g class="binding" data-row="3" data-col="7" data-action="_" transform="translate(845 1969) rotate(0)">
+<title>Tri (3,7): _; held selector from Base</title>
 <rect class="key" x="-36" y="-32" width="72" height="64" rx="8" style="fill:#f8e6f5;stroke:#721045;stroke-width:1.7"/>
 <text class="flag" x="0" y="-18" style="fill:#721045">HELD</text>
 <text class="main" x="0" y="1" style="font-size:21.0px">Bksp</text>
 <text class="sub" x="0" y="22" style="fill:#721045">Right</text>
-</g>
-<g class="binding" data-row="3" data-col="7" data-action="_" transform="translate(845 1969) rotate(0)">
-<title>Tri (3,7): _</title>
-<rect class="transparent" x="-36" y="-32" width="72" height="64" rx="8"/>
-<text class="main" x="0" y="7" style="font-size:21.0px">▽</text>
 </g>
 </g>
 <text class="legend" x="600" y="2102">Tri: hold Tab + Bksp. Caps Word: Enter + Space (Enter + R Ctrl on Right / Tri).</text>

@@ -27,7 +27,7 @@ keys = """
 Q             W            E            R             T       Y       U                 I            O            P
 MT(A, LShift) MT(S, LAlt)  MT(D, LGui)  MT(F, LCtrl)  G       H       MT(J, RCtrl)      MT(K, RGui)  MT(L, RAlt)  MT(Semicolon, RShift)
 Z             X            C            V             B       N       M                 Comma        Dot          Slash
-                           Escape       LT(1, Tab, THUMB) Enter   Space   LT(2, Backspace, THUMB) Delete
+                           LT(1, Tab, THUMB) Enter       Escape  Delete  Space   LT(2, Backspace, THUMB)
 """
 
 [[keymap.layer]]
@@ -45,7 +45,7 @@ keys = """
 RightBracket WM(RightBracket, LShift) WM(0, LShift) WM(Dot, LShift)   PrintScreen Insert                 Home               PageUp             PageDown           End
 LeftBracket  WM(LeftBracket, LShift)  WM(9, LShift) WM(Comma, LShift) _           Delete                 Left               Up                 Down               Right
 Grave        Minus                    Equal         Quote             Backslash   WM(Backslash, LShift)  WM(Quote, LShift)  WM(Equal, LShift)  WM(Minus, LShift)  WM(Grave, LShift)
-                                      _             _                 _           RCtrl                  _                  _
+                                      _             _                 _           _                      RCtrl              _
 """
 
 [[keymap.layer]]
@@ -117,7 +117,7 @@ THUMB = { normal_mode = true, unilateral_tap = false }
 [behavior.combo]
 timeout = "50ms"
 combos = [
-    # Inner thumbs: Caps Word.
+    # Center thumbs: Caps Word.
     { actions = ["Enter", "Space"], output = "CapsWordToggle" },
     # The right layer (also inherited by Tri) replaces Space with RCtrl.
     { actions = ["Enter", "RCtrl"], output = "CapsWordToggle" },
