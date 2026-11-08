@@ -47,6 +47,11 @@ Nav duplicates Backspace, Space and Delete on the right thumbs for editing and
 repeat. Fun duplicates Enter and Tab on the left thumbs, with Menu on the outer
 thumb. Mouse uses right/left/middle click on the right inner/center/outer thumbs.
 
+Num and Sym put the quote pair at the left-pinkie home-row position (base A):
+hold right-center Space and tap A for `'`, or hold right-inner Backspace and
+tap A for `"` on a US host layout. Semicolon remains on Base's right pinkie;
+hold A for Shift and tap semicolon for `:`. Sym's left thumbs remain `(`, `)`, `_`.
+
 Caps Word is on Nav's inner home-row key (base H): hold Enter and tap H.
 The old thumb combos are removed so they do not compete with the six layer-taps.
 Sublayer `No` keys are disabled, not transparent to the alpha layer. Bootloader

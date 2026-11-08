@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="11in" height="8.5in" viewBox="0 0 792 612" role="img" aria-labelledby="title description">
   <title id="title">REMAKE · single-page learning cheatsheet</title>
   <desc id="description">All seven REMAKE layers on one landscape US Letter page, in two columns. Same physical key positions, bindings, and colors as keymap.svg. Large legends are tap actions; smaller colored legends are hold actions. The eighth panel contains learning reminders.</desc>
-  <metadata>Source assets/keymap.svg sha256: 924b3fd8e0d4daa5cc898eaaf37e83de037de38b6d8f5e7c0021a20c61ea8014; keyboard.toml sha256: f6a97417fb2745bb053ef10978e3d0e70f6e93e374020c8a901dba45da4658e4; palette: Modus Operandi, Protesilaos Stavrou, 20261015.953 (6272f81ae3fe); schematic key placement.</metadata>
+  <metadata>Source assets/keymap.svg sha256: da3e13b32df2c3b8545a9912d0ab119ee9e58e4d6e93df2bf9713bbfd7e2431a; keyboard.toml sha256: 50c236001e1a011c3956fbb2d727f86c26b12d005724fe02f1d3a627707cac5a; palette: Modus Operandi, Protesilaos Stavrou, 20261015.953 (6272f81ae3fe); schematic key placement.</metadata>
   <style>
 text{font-family:"DejaVu Sans",sans-serif;fill:#000000;text-anchor:middle}
 .binding text{fill:#000000}
@@ -853,10 +853,10 @@ text{font-family:"DejaVu Sans",sans-serif;fill:#000000;text-anchor:middle}
         <text class="main" x="0" y="1" style="font-size:26.67px">Boot</text>
         <text class="sub" x="0" y="22" style="fill:#a60000;font-size:18px">2× tap</text>
       </g>
-      <g class="binding" data-row="1" data-col="0" data-action="Semicolon" transform="translate(146 412) rotate(0)">
-        <title>Num (1,0): Semicolon</title>
+      <g class="binding" data-row="1" data-col="0" data-action="Quote" transform="translate(146 412) rotate(0)">
+        <title>Num (1,0): Quote</title>
         <rect class="key" x="-36" y="-32" width="72" height="64" rx="8" />
-        <text class="main" x="0" y="7" style="font-size:28.00px">;</text>
+        <text class="main" x="0" y="7" style="font-size:28.00px">'</text>
       </g>
       <g class="binding" data-row="1" data-col="1" data-action="4" transform="translate(226 364) rotate(0)">
         <title>Num (1,1): 4</title>
@@ -1041,10 +1041,10 @@ text{font-family:"DejaVu Sans",sans-serif;fill:#000000;text-anchor:middle}
         <text class="main" x="0" y="1" style="font-size:26.67px">Boot</text>
         <text class="sub" x="0" y="22" style="fill:#a60000;font-size:18px">2× tap</text>
       </g>
-      <g class="binding" data-row="1" data-col="0" data-action="WM(Semicolon, LShift)" transform="translate(146 412) rotate(0)">
-        <title>Sym (1,0): WM(Semicolon, LShift)</title>
+      <g class="binding" data-row="1" data-col="0" data-action="WM(Quote, LShift)" transform="translate(146 412) rotate(0)">
+        <title>Sym (1,0): WM(Quote, LShift)</title>
         <rect class="key" x="-36" y="-32" width="72" height="64" rx="8" />
-        <text class="main" x="0" y="7" style="font-size:28.00px">:</text>
+        <text class="main" x="0" y="7" style="font-size:28.00px">&quot;</text>
       </g>
       <g class="binding" data-row="1" data-col="1" data-action="WM(4, LShift)" transform="translate(226 364) rotate(0)">
         <title>Sym (1,1): WM(4, LShift)</title>

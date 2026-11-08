@@ -123,6 +123,15 @@ fn miryoku_thumb_selectors_and_repeat_keys_resolve_at_the_physical_positions() {
 }
 
 #[test]
+fn quote_pair_resolves_on_the_left_pinkie_without_losing_base_semicolon() {
+    let map = config().keymap().unwrap();
+    assert_eq!(map.keymap[4][1][0], "Quote");
+    assert_eq!(map.keymap[5][1][0], "WM(Quote, LShift)");
+    assert_eq!(map.keymap[0][1][9], "MT(Semicolon, RShift)");
+    assert_eq!(map.keymap[0][1][0], "MT(A, LShift)");
+}
+
+#[test]
 fn layer_modifiers_stay_on_the_supporting_hand_in_the_existing_home_row_order() {
     let map = config().keymap().unwrap();
     assert_eq!(map.keymap.len(), 7);

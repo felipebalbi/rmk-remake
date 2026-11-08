@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="3692" viewBox="0 0 1200 3692" role="img" aria-labelledby="title description">
   <title id="title">REMAKE — all layers</title>
   <desc id="description">36-key REMAKE with Miryoku sublayers, QWERTY and existing home-row mods. Staggered columns and physical thumbs in typing orientation. Hold legends and active-thumb tints; dashes are disabled. Media RGB positions are unbound.</desc>
-  <metadata>keyboard.toml sha256: f6a97417fb2745bb053ef10978e3d0e70f6e93e374020c8a901dba45da4658e4; palette: Modus Operandi, Protesilaos Stavrou, 20261015.953 (6272f81ae3fe); schematic key placement.</metadata>
+  <metadata>keyboard.toml sha256: 50c236001e1a011c3956fbb2d727f86c26b12d005724fe02f1d3a627707cac5a; palette: Modus Operandi, Protesilaos Stavrou, 20261015.953 (6272f81ae3fe); schematic key placement.</metadata>
   <style>
 text{font-family:"DejaVu Sans",sans-serif;fill:#000000;text-anchor:middle}
 .binding text{fill:#000000}
@@ -844,10 +844,10 @@ text{font-family:"DejaVu Sans",sans-serif;fill:#000000;text-anchor:middle}
       <text class="main" x="0" y="1" style="font-size:21.0px">Boot</text>
       <text class="sub" x="0" y="22" style="fill:#a60000">double tap</text>
     </g>
-    <g class="binding" data-row="1" data-col="0" data-action="Semicolon" transform="translate(146 412) rotate(0)">
-      <title>Num (1,0): Semicolon</title>
+    <g class="binding" data-row="1" data-col="0" data-action="Quote" transform="translate(146 412) rotate(0)">
+      <title>Num (1,0): Quote</title>
       <rect class="key" x="-36" y="-32" width="72" height="64" rx="8" />
-      <text class="main" x="0" y="7" style="font-size:21.0px">;</text>
+      <text class="main" x="0" y="7" style="font-size:21.0px">'</text>
     </g>
     <g class="binding" data-row="1" data-col="1" data-action="4" transform="translate(226 364) rotate(0)">
       <title>Num (1,1): 4</title>
@@ -1032,10 +1032,10 @@ text{font-family:"DejaVu Sans",sans-serif;fill:#000000;text-anchor:middle}
       <text class="main" x="0" y="1" style="font-size:21.0px">Boot</text>
       <text class="sub" x="0" y="22" style="fill:#a60000">double tap</text>
     </g>
-    <g class="binding" data-row="1" data-col="0" data-action="WM(Semicolon, LShift)" transform="translate(146 412) rotate(0)">
-      <title>Sym (1,0): WM(Semicolon, LShift)</title>
+    <g class="binding" data-row="1" data-col="0" data-action="WM(Quote, LShift)" transform="translate(146 412) rotate(0)">
+      <title>Sym (1,0): WM(Quote, LShift)</title>
       <rect class="key" x="-36" y="-32" width="72" height="64" rx="8" />
-      <text class="main" x="0" y="7" style="font-size:21.0px">:</text>
+      <text class="main" x="0" y="7" style="font-size:21.0px">&quot;</text>
     </g>
     <g class="binding" data-row="1" data-col="1" data-action="WM(4, LShift)" transform="translate(226 364) rotate(0)">
       <title>Sym (1,1): WM(4, LShift)</title>

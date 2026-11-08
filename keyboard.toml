@@ -63,7 +63,7 @@ No     No    No    No     No  User7  User0           User1          User2       
 name = "Num"
 keys = """
 LeftBracket 7 8 9 RightBracket  No No    No    No    TD(0)
-Semicolon   4 5 6 Equal         No RCtrl RGui  RAlt  RShift
+Quote       4 5 6 Equal         No RCtrl RGui  RAlt  RShift
 Grave       1 2 3 Backslash     No No    No    No    No
               Dot 0 Minus      No No No
 """
@@ -72,7 +72,7 @@ Grave       1 2 3 Backslash     No No    No    No    No
 name = "Sym"
 keys = """
 WM(LeftBracket, LShift) WM(7, LShift) WM(8, LShift) WM(9, LShift) WM(RightBracket, LShift) No No    No    No    TD(0)
-WM(Semicolon, LShift)   WM(4, LShift) WM(5, LShift) WM(6, LShift) WM(Equal, LShift)        No RCtrl RGui  RAlt  RShift
+WM(Quote, LShift)       WM(4, LShift) WM(5, LShift) WM(6, LShift) WM(Equal, LShift)        No RCtrl RGui  RAlt  RShift
 WM(Grave, LShift)       WM(1, LShift) WM(2, LShift) WM(3, LShift) WM(Backslash, LShift)    No No    No    No    No
                                     WM(9, LShift) WM(0, LShift) WM(Minus, LShift)        No No No
 """
