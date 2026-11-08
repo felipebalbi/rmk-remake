@@ -417,9 +417,12 @@ mod tests {
         assert!(p.set_battery(None));
         for (layer, label) in [
             (0, "Base"),
-            (1, "Left"),
-            (2, "Right"),
-            (3, "Tri"),
+            (1, "Nav"),
+            (2, "Mouse"),
+            (3, "Media"),
+            (4, "Num"),
+            (5, "Sym"),
+            (6, "Fun"),
             (255, "Layer 255"),
         ] {
             c.set_layer(layer);

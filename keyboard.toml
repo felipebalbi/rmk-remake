@@ -19,7 +19,9 @@ map = """
 """
 
 [keymap]
-layers = 4
+layers = 7
+# Miryoku's six sublayers with QWERTY and the existing home-row mod order.
+# No Auto Shift, alternate alpha layers, or layer locks in this experiment.
 
 [[keymap.layer]]
 name = "Base"
@@ -27,46 +29,79 @@ keys = """
 Q             W            E            R             T       Y       U                 I            O            P
 MT(A, LShift) MT(S, LAlt)  MT(D, LGui)  MT(F, LCtrl)  G       H       MT(J, RCtrl)      MT(K, RGui)  MT(L, RAlt)  MT(Semicolon, RShift)
 Z             X            C            V             B       N       M                 Comma        Dot          Slash
-                           LT(1, Tab, THUMB) Enter       Escape  Delete  Space   LT(2, Backspace, THUMB)
+                           LT(3, Escape, THUMB) LT(1, Enter, THUMB) LT(2, Tab, THUMB) LT(5, Backspace, THUMB) LT(4, Space, THUMB) LT(6, Delete, THUMB)
 """
 
 [[keymap.layer]]
-name = "Left"
+name = "Nav"
 keys = """
-WM(1, LShift) WM(2, LShift) WM(3, LShift) WM(4, LShift) WM(5, LShift) WM(6, LShift) WM(7, LShift) WM(8, LShift) WM(9, LShift) WM(0, LShift)
-1             2             3             4             5             6             7             8             9             0
-WM(1, LGui)   WM(2, LGui)   WM(3, LGui)   WM(4, LGui)   WM(5, LGui)   WM(6, LGui)   WM(7, LGui)   WM(8, LGui)   WM(9, LGui)   WM(0, LGui)
-                            _             _             _             _             _             _
+TD(0)  No    No    No     No  Macro(0)        WM(Insert, LShift) WM(Insert, LCtrl) WM(Delete, LShift) Undo
+LShift LAlt  LGui  LCtrl  No  CapsWordToggle  Left               Down               Up                 Right
+No     No    No    No     No  Insert          Home               PageDown           PageUp             End
+             No    No     No  Backspace       Space              Delete
 """
 
 [[keymap.layer]]
-name = "Right"
+name = "Mouse"
 keys = """
-RightBracket WM(RightBracket, LShift) WM(0, LShift) WM(Dot, LShift)   PrintScreen Insert                 Home               PageUp             PageDown           End
-LeftBracket  WM(LeftBracket, LShift)  WM(9, LShift) WM(Comma, LShift) _           Delete                 Left               Up                 Down               Right
-Grave        Minus                    Equal         Quote             Backslash   WM(Backslash, LShift)  WM(Quote, LShift)  WM(Equal, LShift)  WM(Minus, LShift)  WM(Grave, LShift)
-                                      _             _                 _           _                      RCtrl              _
+TD(0)  No    No    No     No  Macro(0) WM(Insert, LShift) WM(Insert, LCtrl) WM(Delete, LShift) Undo
+LShift LAlt  LGui  LCtrl  No  No       MouseLeft          MouseDown          MouseUp            MouseRight
+No     No    No    No     No  No       MouseWheelLeft     MouseWheelDown     MouseWheelUp       MouseWheelRight
+             No    No     No  MouseBtn2 MouseBtn1         MouseBtn3
 """
 
 [[keymap.layer]]
-name = "Tri"
+name = "Media"
 keys = """
-WM(L, LGui | LCtrl) No     No  Reboot      User0  User3  F1  F2   F3   F4
-LAlt               LCtrl  No  Bootloader  User1  User4  F5  F6   F7   F8
-No                 No     No  User8       User2  User5  F9  F10  F11  F12
-                          _   _           _      _      _   _
+TD(0)  No    No    No     No  No     No              No             No           No
+LShift LAlt  LGui  LCtrl  No  No     MediaPrevTrack  AudioVolDown   AudioVolUp   MediaNextTrack
+No     No    No    No     No  User7  User0           User1          User2        User3
+             No    No     No  MediaStop MediaPlayPause AudioMute
+"""
+
+[[keymap.layer]]
+name = "Num"
+keys = """
+LeftBracket 7 8 9 RightBracket  No No    No    No    TD(0)
+Semicolon   4 5 6 Equal         No RCtrl RGui  RAlt  RShift
+Grave       1 2 3 Backslash     No No    No    No    No
+              Dot 0 Minus      No No No
+"""
+
+[[keymap.layer]]
+name = "Sym"
+keys = """
+WM(LeftBracket, LShift) WM(7, LShift) WM(8, LShift) WM(9, LShift) WM(RightBracket, LShift) No No    No    No    TD(0)
+WM(Semicolon, LShift)   WM(4, LShift) WM(5, LShift) WM(6, LShift) WM(Equal, LShift)        No RCtrl RGui  RAlt  RShift
+WM(Grave, LShift)       WM(1, LShift) WM(2, LShift) WM(3, LShift) WM(Backslash, LShift)    No No    No    No    No
+                                    WM(9, LShift) WM(0, LShift) WM(Minus, LShift)        No No No
+"""
+
+[[keymap.layer]]
+name = "Fun"
+keys = """
+F12 F7 F8 F9 PrintScreen  No No    No    No    TD(0)
+F11 F4 F5 F6 ScrollLock   No RCtrl RGui  RAlt  RShift
+F10 F1 F2 F3 Pause        No No    No    No    No
+        Application Enter Tab No No No
 """
 
 [rmk]
 # Match ZMK's 5ms press/release debounce.
 debounce_time = 5
-# The number of available BLE profiles
-ble_profiles_num = 6
+# Miryoku's four host BLE profiles, BT0 through BT3.
+# Media uses User0..3 for profiles and User7 for USB/BLE, matching Miryoku positions.
+# The unused RGB and external-power positions remain No, not extra BT controls.
+ble_profiles_num = 4
 # enable sleep
 split_central_sleep_timeout_seconds = 30
 
 [ble]
 enabled = true
+
+[host]
+# Vial's physical-presence challenge: hold both center thumbs (Enter + Space).
+unlock_keys = [[3, 3], [3, 6]]
 
 [event.battery_status]
 channel_size = 2
@@ -94,15 +129,11 @@ channel_size = 1
 pubs = 1
 subs = 1
 
-[behavior]
-tri_layer = { upper = 1, lower = 2, adjust = 3 }
-
 [behavior.morse]
 # Home-row mods: opposite-hand chords hold; same-hand rolls tap.
 permissive_hold = true
 unilateral_tap = true
-# Retain following presses/releases until the home-row or thumb owner decides.
-buffered_tap_hold = true
+# Ordered tap-hold is built into the pinned RMK revision; no opt-in switch.
 enable_flow_tap = false
 # Inactive while flow-tap is disabled; retained for the legacy-policy comparison.
 prior_idle_time = "120ms"
@@ -113,15 +144,19 @@ quick_tap_timeout = "0ms"
 [behavior.morse.profiles]
 # Thumb layer-taps use the same 200ms timeout, without home-row chord rules.
 THUMB = { normal_mode = true, unilateral_tap = false }
+BOOT = { normal_mode = true, unilateral_tap = false, gap_timeout = "200ms" }
 
-[behavior.combo]
-timeout = "50ms"
-combos = [
-    # Center thumbs: Caps Word.
-    { actions = ["Enter", "Space"], output = "CapsWordToggle" },
-    # The right layer (also inherited by Tri) replaces Space with RCtrl.
-    { actions = ["Enter", "RCtrl"], output = "CapsWordToggle" },
-]
+[[behavior.morse.morses]]
+# Hold any layer thumb, then double-tap the same-hand top-row pinkie key.
+tap = "No"
+hold = "No"
+double_tap = "Bootloader"
+hold_after_tap = "No"
+profile = "BOOT"
+
+[behavior.macros]
+# A raw HID Again/Redo tap, not RMK's repeat-the-last-key action.
+macros = [{ operations = [{ operation = "tap", keycode = "Again" }] }]
 
 [split]
 connection = "ble"

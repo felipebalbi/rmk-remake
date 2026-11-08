@@ -39,7 +39,6 @@ fn profile(p: &rmk_config::resolved::behavior::MorseProfile) -> MorseProfile {
         p.gap_timeout_ms.map(|t| t.try_into().unwrap()),
     )
     .with_enable_flow_tap(p.enable_flow_tap)
-    .with_buffered_tap_hold(p.buffered_tap_hold)
     .with_quick_tap_timeout_ms(p.quick_tap_timeout_ms.map(|t| t.try_into().unwrap()))
 }
 
@@ -119,7 +118,7 @@ use Step::{At, Down, Up, Wait};
 #[derive(Clone, Copy)]
 enum Policy {
     Configured,
-    LegacyFlowTap,
+    FlowTapComparison,
 }
 
 fn sequence(prior_gap_ms: Option<u64>, steps: &[Step]) -> Trace {
@@ -127,27 +126,32 @@ fn sequence(prior_gap_ms: Option<u64>, steps: &[Step]) -> Trace {
 }
 
 fn sequence_for(policy: Policy, prior_gap_ms: Option<u64>, steps: &[Step]) -> Trace {
+    sequence_fixture(policy, prior_gap_ms, steps, None)
+}
+
+fn sequence_fixture(
+    policy: Policy,
+    prior_gap_ms: Option<u64>,
+    steps: &[Step],
+    configured_thumb_col: Option<usize>,
+) -> Trace {
     let _lock = crate::tests::EVENT_LOCK.lock().unwrap();
     MockDriver::get().reset();
     rmk::state::set_usb_state(rmk::types::connection::UsbState::Configured);
     rmk::channel::USB_REPORT_CHANNEL.clear();
     let (mut behavior, thumb) = configured_behavior();
-    if matches!(policy, Policy::LegacyFlowTap) {
+    if matches!(policy, Policy::FlowTapComparison) {
         behavior.morse.enable_flow_tap = true;
         behavior.morse.default_profile = behavior
             .morse
             .default_profile
-            .with_enable_flow_tap(Some(true))
-            .with_buffered_tap_hold(Some(false));
-        for profile in &mut behavior.morse.profiles {
-            *profile = profile.with_buffered_tap_hold(Some(false));
-        }
+            .with_enable_flow_tap(Some(true));
     }
     let key = |k| Action::Key(KeyCode::Hid(k));
     // 0=A/Shift, 1=S/Alt, 2=Q, 3=H, 4=Tab/layer 1,
     // 5=Backspace/layer 2, 6=I, 7=Space, 8=M (double-quote on layer 2).
     // Index 255 selects the global profile (outside the named-profile table).
-    let base = [[
+    let mut base = [[
         KeyAction::TapHold(
             key(K::A),
             Action::Modifier(ModifierCombination::LSHIFT),
@@ -167,7 +171,41 @@ fn sequence_for(policy: Policy, prior_gap_ms: Option<u64>, steps: &[Step]) -> Tr
         K::Quote,
         ModifierCombination::LSHIFT,
     ));
-    let mut data = KeymapData::new([base, [[KeyAction::Transparent; 9]], right]);
+    let mut layers = [[[KeyAction::Transparent; 9]; 1]; 7];
+    if let Some(col) = configured_thumb_col {
+        // Read the real resolved thumb action, rather than reproducing its tap
+        // and hold in a fixture. Only the transport/clock and positions are synthetic.
+        let config = rmk_config::KeyboardTomlConfig::new_from_toml_path(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/../../keyboard.toml"
+        ));
+        let map = config.keymap().unwrap();
+        let action = map.keymap[0][3][col].replace(' ', "");
+        let inner = action
+            .strip_prefix("LT(")
+            .unwrap()
+            .strip_suffix(')')
+            .unwrap();
+        let args: Vec<_> = inner.split(',').collect();
+        let layer = args[0].parse::<u8>().unwrap();
+        assert_eq!(args[2], "THUMB");
+        let tap = match args[1] {
+            "Escape" => K::Escape,
+            "Enter" => K::Enter,
+            "Tab" => K::Tab,
+            "Backspace" => K::Backspace,
+            "Space" => K::Space,
+            "Delete" => K::Delete,
+            other => panic!("unexpected configured thumb tap: {other}"),
+        };
+        let index = if col <= 4 { 4 } else { 5 };
+        base[0][index] = KeyAction::TapHold(key(tap), Action::LayerOn(layer), thumb);
+    } else {
+        // Keep the original representative quote fixture for captured typing regressions.
+        layers[2] = right;
+    }
+    layers[0] = base;
+    let mut data = KeymapData::new(layers);
     let positions = PositionalConfig::new([[
         Hand::Left,
         Hand::Left,
@@ -240,6 +278,46 @@ fn sequence_for(policy: Policy, prior_gap_ms: Option<u64>, steps: &[Step]) -> Tr
 }
 
 #[test]
+fn all_six_configured_thumbs_tap_once_or_hold_their_layer_without_stuck_state() {
+    for (col, tap, layer) in [
+        (2, K::Escape, 3),
+        (3, K::Enter, 1),
+        (4, K::Tab, 2),
+        (5, K::Backspace, 5),
+        (6, K::Space, 4),
+        (7, K::Delete, 6),
+    ] {
+        let index = if col <= 4 { 4 } else { 5 };
+        let trace = sequence_fixture(
+            Policy::Configured,
+            None,
+            &[Down(index), Up(index)],
+            Some(col),
+        );
+        assert_eq!(trace.presses, [tap], "thumb column {col}");
+        assert!(trace.layers.iter().all(|l| *l == 0));
+        assert_eq!(trace.held, [0; 6]);
+        let trace = sequence_fixture(
+            Policy::Configured,
+            None,
+            &[Down(index), Wait(210), Up(index)],
+            Some(col),
+        );
+        assert!(
+            trace.presses.is_empty(),
+            "hold must not emit thumb tap at column {col}"
+        );
+        assert!(
+            trace.layers.contains(&layer),
+            "thumb column {col} must activate layer {layer}"
+        );
+        assert_eq!(trace.layers.last(), Some(&0));
+        assert_eq!(trace.held, [0; 6]);
+        assert!(trace.modifiers.iter().all(|m| *m == 0));
+    }
+}
+
+#[test]
 fn home_row_roll_during_typing_preserves_asq_order_without_modifiers() {
     let trace = sequence(Some(30), &[Down(0), Down(1), Down(2), Up(0), Up(1), Up(2)]);
     assert_eq!(trace.presses, [K::A, K::S, K::Q]);
@@ -260,7 +338,7 @@ fn thumb_rolls_during_typing_emit_tab_or_backspace_before_the_next_letter() {
 #[test]
 fn nested_opposite_hand_key_during_typing_does_not_turn_a_into_shift() {
     let trace = sequence_for(
-        Policy::LegacyFlowTap,
+        Policy::FlowTapComparison,
         Some(30),
         &[Down(0), Down(3), Up(3), Up(0)],
     );
@@ -296,7 +374,7 @@ fn deliberate_thumb_layer_holds_still_work_after_a_typing_pause() {
 fn thumb_started_during_typing_stays_a_tap_even_if_held_past_the_timeout() {
     for (thumb, tap) in [(4, K::Tab), (5, K::Backspace)] {
         let trace = sequence_for(
-            Policy::LegacyFlowTap,
+            Policy::FlowTapComparison,
             Some(30),
             &[Down(thumb), Wait(250), Up(thumb)],
         );
