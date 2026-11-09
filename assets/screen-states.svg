@@ -2,7 +2,6 @@
 <title id="title">REMAKE — connection states</title>
 <desc id="description">Left · connected; Left · advertising; Left · disconnected; Right · connected; Right · waiting. Pixel-accurate monochrome firmware previews, not hardware photographs.</desc>
 <metadata>{"palette_scope": "Documentation canvas, bezel and captions only; LCD pixels remain black and white.", "pixel_geometry": "68x160 portrait, binary foreground/background", "presentation_palette": "Modus Operandi, Protesilaos Stavrou, 20261015.953 (6272f81ae3fe)", "renderer_commit": "d32f234cd3cad384899c4257b47981f7d29032e9", "renderer_sha256": "841ee471ef836a72fe6379197fd7662606452ce2180552aad4ecd4f117989e79", "source": "Rendered by the actual firmware ScreenState::render on the host; no browser fonts inside screens."}</metadata>
-<rect width="1200" height="100%" fill="#ffffff"/>
 <g fill="#000000" font-family="DejaVu Sans, sans-serif" text-anchor="middle">
 <text x="600" y="30" font-size="23" font-weight="600">REMAKE · connection states</text>
 <text fill="#595959" x="600" y="54" font-size="13">68 × 160 pixels per screen · dark, one-bit layout · enlarged without smoothing</text>

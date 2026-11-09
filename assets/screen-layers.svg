@@ -2,7 +2,6 @@
 <title id="title">REMAKE — all seven layer labels</title>
 <desc id="description">0 · Base; 1 · Nav; 2 · Mouse; 3 · Media; 4 · Num; 5 · Sym; 6 · Fun. Pixel-accurate firmware previews.</desc>
 <metadata>{&quot;pixel_geometry&quot;: &quot;68x160 portrait, binary foreground/background&quot;, &quot;presentation_palette&quot;: &quot;Modus Operandi, Protesilaos Stavrou, 20261015.953 (6272f81ae3fe)&quot;, &quot;renderer_sha256&quot;: &quot;3664dacb0c47142f20a3bca9b6ac5c782c54280ae9bebe3ea0cbf8b924e87a9b&quot;, &quot;source&quot;: &quot;Actual firmware ScreenState::render; no browser fonts inside screens.&quot;}</metadata>
-<rect width="1200" height="1220" fill="#ffffff"/>
 <g fill="#000000" font-family="DejaVu Sans, sans-serif" text-anchor="middle">
 <text x="600" y="30" font-size="23" font-weight="600">REMAKE · layer labels</text>
 <text x="600" y="54" font-size="13" fill="#595959">68 × 160 pixels per screen · all seven layers · enlarged without smoothing</text>
