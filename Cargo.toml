@@ -11,7 +11,7 @@ license = "MIT OR Apache-2.0"
 # Firmware and native checks pin RMK PR #1347; ordered tap-hold is now the default.
 # Host BLE profile count is set in keyboard.toml: four slots, BT0 through BT3.
 # This revision/features migration invalidates RMK's stored configuration hash.
-rmk = { git = "https://github.com/felipebalbi/rmk.git", rev = "c3719f6f2655cacef63f3b5d12c3c830d7195828", default-features = false, features = [
+rmk = { git = "https://github.com/felipebalbi/rmk.git", rev = "ca1dda5bd3fedd2804cd558f5e86e03a46c41c05", default-features = false, features = [
     "nrf52840_ble",
     "split",
     "subrating",
@@ -92,3 +92,17 @@ debug = true            # no overhead for bare-metal
 opt-level = "z"         # optimize for binary size
 overflow-checks = false
 lto = "fat"
+
+# Match RMK's Embassy pin; dependency patches only apply at the root.
+[patch.crates-io]
+embassy-embedded-hal = { git = "https://github.com/embassy-rs/embassy", rev = "12b84e3dd8d6b31f045649b84250292c34e024d4" }
+embassy-futures = { git = "https://github.com/embassy-rs/embassy", rev = "12b84e3dd8d6b31f045649b84250292c34e024d4" }
+embassy-hal-internal = { git = "https://github.com/embassy-rs/embassy", rev = "12b84e3dd8d6b31f045649b84250292c34e024d4" }
+embassy-nrf = { git = "https://github.com/embassy-rs/embassy", rev = "12b84e3dd8d6b31f045649b84250292c34e024d4" }
+embassy-sync = { git = "https://github.com/embassy-rs/embassy", rev = "12b84e3dd8d6b31f045649b84250292c34e024d4" }
+embassy-time = { git = "https://github.com/embassy-rs/embassy", rev = "12b84e3dd8d6b31f045649b84250292c34e024d4" }
+embassy-time-driver = { git = "https://github.com/embassy-rs/embassy", rev = "12b84e3dd8d6b31f045649b84250292c34e024d4" }
+embassy-time-queue-utils = { git = "https://github.com/embassy-rs/embassy", rev = "12b84e3dd8d6b31f045649b84250292c34e024d4" }
+embassy-usb = { git = "https://github.com/embassy-rs/embassy", rev = "12b84e3dd8d6b31f045649b84250292c34e024d4" }
+embassy-usb-driver = { git = "https://github.com/embassy-rs/embassy", rev = "12b84e3dd8d6b31f045649b84250292c34e024d4" }
+embassy-executor-timer-queue = { git = "https://github.com/embassy-rs/embassy", rev = "12b84e3dd8d6b31f045649b84250292c34e024d4" }

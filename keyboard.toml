@@ -92,7 +92,7 @@ debounce_time = 5
 # Miryoku's four host BLE profiles, BT0 through BT3.
 # Media uses User0..3 for profiles and User7 for USB/BLE, matching Miryoku positions.
 # The unused RGB and external-power positions remain No, not extra BT controls.
-ble_profiles_num = 4
+num_ble_profiles = 4
 # enable sleep
 split_central_sleep_timeout_seconds = 30
 

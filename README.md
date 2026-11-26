@@ -69,13 +69,13 @@ same-hand tap filtering. Thumb layer-taps use 200 ms Normal mode without
 hand filtering. Flow-tap and quick-tap repeat are disabled.
 Ordered tap-hold is the default in the pinned head of
 [RMK PR #1347](https://github.com/rmk-rs/rmk/pull/1347)
-(`c3719f6f2655cacef63f3b5d12c3c830d7195828`); the former
+(`ca1dda5bd3fedd2804cd558f5e86e03a46c41c05`); the former
 `buffered_tap_hold` Cargo feature and TOML switch are no longer present.
 
 ### Bluetooth profiles
 
 There are **four host profiles, BT0–BT3**, matching Miryoku, rather than the
-previous six. The build-time count is `rmk.ble_profiles_num = 4` in
+previous six. The build-time count is `rmk.num_ble_profiles = 4` in
 `keyboard.toml`; it is not a Cargo feature. `Cargo.toml` retains the existing
 BLE/split features and pins the same RMK revision as the host tests.
 
@@ -87,12 +87,13 @@ control. They are not repurposed for extra Bluetooth commands.
 
 BT0–BT3 use User0–User3; the transport toggle is User7. RMK User IDs depend
 on the profile count, so changing only the count without the keybindings is unsafe.
-Holding a profile selector for five seconds invokes
-RMK's clear-that-slot-and-select gesture; use a short tap for ordinary switching.
+Holding a profile selector for five seconds starts re-pairing that slot,
+preserving its old bond until replacement pairing succeeds; use a short tap for
+ordinary switching.
 The pinned RMK revision does not implement Miryoku's Shift+profile clear or
 Shift+output force-USB semantics: Shift does not change these User actions.
 This is a firmware capability difference, not an extra layout binding. The
-five-second clear gesture remains available without occupying an RGB key.
+five-second re-pairing gesture remains available without occupying an RGB key.
 
 ### Vial
 

@@ -171,7 +171,7 @@ fn four_profile_media_controls_use_the_profile_count_dependent_rmk_user_actions(
         config
             .build_constants(&["nrf52840_ble", "split"])
             .unwrap()
-            .ble_profiles_num,
+            .num_ble_profiles,
         4
     );
     let map = config.keymap().unwrap();
